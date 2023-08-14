@@ -31,9 +31,10 @@ const Table = ({coinsData}) => {
                     </span>
                     <input type="range" min="1" max="250" value={rangeNumber}
                     onChange={(e) => setRangeNumber(e.target.value) }/> 
+                    <ToTop />
                 </div>
 
-                <ToTop />
+                
                 
 
                 {/* //?Affichage des titres de colonnes  et le tri*/}
