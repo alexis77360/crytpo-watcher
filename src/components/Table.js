@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import TableLine from './TableLine';
+import ToTop from './ToTop';
 
 const Table = ({coinsData}) => {
     const [rangeNumber, setRangeNumber] = useState(100);
@@ -12,6 +13,7 @@ const Table = ({coinsData}) => {
         "Volume",
         "1h",
         "1j",
+        "7j",
         "1m",
         "6m",
         "1a",
@@ -30,6 +32,8 @@ const Table = ({coinsData}) => {
                     <input type="range" min="1" max="250" value={rangeNumber}
                     onChange={(e) => setRangeNumber(e.target.value) }/> 
                 </div>
+
+                <ToTop />
                 
 
                 {/* //?Affichage des titres de colonnes  et le tri*/}
@@ -53,7 +57,7 @@ const Table = ({coinsData}) => {
             {coinsData && coinsData
             .slice(0, rangeNumber) //? Pour afficher le nombre de crypto voulu
 
-            .map((coin, index) => ( <TableLine coin={coin} index={index} />
+            .map((coin, index) => ( <TableLine coin={coin} index={index} key={coin.id}/>
 
                 
 
