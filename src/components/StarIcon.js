@@ -10,10 +10,11 @@ const StarIcon = ({coinId}) => {
             let favList = window.localStorage.coinList.split(",");
             if(favList.includes(coinId)) {
                 setIsFavorite(true);
+            }else {
+                setIsFavorite(false);
             }
-
         }
-    })
+    }, [coinId])
 
     //? Gère l'ajout et la suppression des favoris
     const idChecker = (id) => {

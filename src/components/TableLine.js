@@ -1,8 +1,11 @@
 import React from 'react';
 import PercentChange from './PercentChange';
 import StarIcon from './StarIcon';
+import CoinChart from './CoinChart';
 
 const TableLine = ({coin, index}) => {
+
+    const [showChart, setShowChart] = React.useState(false);
 
     //? Formate le prix si le nombre de chiffres est inférieur à 4
     const priceFormater = (num) => {
@@ -30,8 +33,16 @@ const TableLine = ({coin, index}) => {
                 <p>{index + 1 } </p>
                 <img src={coin.image} alt="crypto-logo" height='20' />
                 <div className="infos">
-                    <div className="chart-img">
+                    {/* //! Affiche le mini graph */}
+                    <div className="chart-img" 
+                    onMouseEnter={() => setShowChart(true)} onMouseLeave={() => setShowChart(false)}>
+
                         <img src="./assets/chart-icon.svg" alt="chart-icon" />
+
+                        <div className="chart-container" id={coin.name}>
+                            {showChart && <CoinChart coinId={coin.id} coinName={coin.name} />}
+                        </div>
+
                     </div>
 
                     <h4>{coin.name}</h4>
