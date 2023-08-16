@@ -9,3 +9,4 @@ Coin price chart : `https://api.coingecko.com/api/v3/coins/${coinId}/market_char
 Coingecko : `https://www.coingecko.com/fr/pi%C3%A8ces/`
 
 Recharts : `https://recharts.org/en-US/` pour les graphiques
+
